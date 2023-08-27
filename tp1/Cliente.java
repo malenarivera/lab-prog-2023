@@ -1,3 +1,7 @@
+package lab-prog-2023. tp1;
+
+import java.util.concurrent.*;
+
 public class Cliente implements Runnable {
     Cafeteria c;
 
