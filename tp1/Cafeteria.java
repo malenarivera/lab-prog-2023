@@ -1,37 +1,36 @@
-package lab-prog-2023.tp1;
 
 
-    import java.util.concurrent.*;
+import java.util.concurrent.*;
 
-class Coffee implements Callable<String> {
+class Cafe implements Callable<String> {
     private String type;
 
-    public Coffee(String type) {
+    public Cafe(String type) {
         this.type = type;
     }
 
     @Override
     public String call() throws Exception {
-        return "Prepared " + type + " coffee";
+        return "Prepared " + type + " Cafe";
     }
 }
 
-class CoffeeDecorator implements Callable<String> {
-    protected Callable<String> decoratedCoffee;
+class CafeDecorator implements Callable<String> {
+    protected Callable<String> cafeDecorated;
 
-    public CoffeeDecorator(Callable<String> decoratedCoffee) {
-        this.decoratedCoffee = decoratedCoffee;
+    public CafeDecorator(Callable<String> cafeDecorated) {
+        this.cafeDecorated = cafeDecorated;
     }
 
     @Override
     public String call() throws Exception {
-        return decoratedCoffee.call();
+        return cafeDecorated.call();
     }
 }
 
-class MilkDecorator extends CoffeeDecorator {
-    public MilkDecorator(Callable<String> decoratedCoffee) {
-        super(decoratedCoffee);
+class cafeConLeche extends CafeDecorator {
+    public cafeConLeche(Callable<String> cafeDecorated) {
+        super(cafeDecorated);
     }
 
     @Override
@@ -40,9 +39,9 @@ class MilkDecorator extends CoffeeDecorator {
     }
 }
 
-class SugarDecorator extends CoffeeDecorator {
-    public SugarDecorator(Callable<String> decoratedCoffee) {
-        super(decoratedCoffee);
+class cafeConAzucar extends CafeDecorator {
+    public cafeConAzucar(Callable<String> cafeDecorated) {
+        super(cafeDecorated);
     }
 
     @Override
@@ -55,17 +54,17 @@ public class Cafeteria {
     public static void main(String[] args) {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
 
-        // Create a basic coffee
-        Callable<String> basicCoffee = new Coffee("Regular");
+        // Create a basic Cafe
+        Callable<String> basicCafe = new Cafe("Regular");
 
-        // Decorate the basic coffee with milk and sugar
-        Callable<String> decoratedCoffee = new SugarDecorator(new MilkDecorator(basicCoffee));
+        // Decorate the basic Cafe with milk and sugar
+        Callable<String> cafeDecorated = new cafeConAzucar(new cafeConLeche(basicCafe));
 
-        // Schedule the prepared coffee to be ready in 5 seconds
-        ScheduledFuture<String> futureCoffee = executor.schedule(decoratedCoffee, 5, TimeUnit.SECONDS);
+        // Schedule the prepared Cafe to be ready in 5 seconds
+        ScheduledFuture<String> futureCafe = executor.schedule(cafeDecorated, 5, TimeUnit.SECONDS);
 
         try {
-            String result = futureCoffee.get();
+            String result = futureCafe.get();
             System.out.println(result);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
@@ -74,4 +73,3 @@ public class Cafeteria {
         executor.shutdown();
     }
 }
-
