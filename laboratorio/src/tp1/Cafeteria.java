@@ -37,10 +37,8 @@ public class Cafeteria {
         //metodo usado por cliente;
         //hace un pedido en la cafeteria
         //el pedido es random
-        pedidosPendientes.offer(new Pedido());
+        pedidosPendientes.offer(new Object());
     }
     
-    public Pedido atenderPedido(){
-        
-    }
+    
 }
