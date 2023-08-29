@@ -8,11 +8,14 @@ package tp1;
 import java.util.concurrent.*;
 
 public class Barista implements Callable {
+    Cafeteria c;
 
    
     @Override
     public String call() throws Exception {
+        c.avisarPedidoListo();
         return "Pedido preparado";
+        
     }
     
 }
