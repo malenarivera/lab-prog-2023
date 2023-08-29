@@ -1,4 +1,4 @@
-package lab-prog-2023. tp1;
+package tp1;
 
 import java.util.concurrent.*;
 
@@ -14,3 +14,4 @@ public class Cliente implements Runnable {
        c.hacerPedido();
        System.out.println("Soy el cliente "+Thread.currentThread().getName()+" y ya tengo mi pedido");
     }
+}
