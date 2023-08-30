@@ -12,9 +12,9 @@ public class Barista implements Callable {
 
    
     @Override
-    public String call() throws Exception {
+    public Object call() throws Exception {
         c.avisarPedidoListo();
-        return "Pedido preparado";
+        return true;
         
     }
     

@@ -8,6 +8,7 @@ package tp1;
 /**
  *
  * @author male_
+ * @author anto
  */
 public interface Cafe {
     //clase q implementa el decoratorrrrr

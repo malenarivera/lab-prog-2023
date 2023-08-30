@@ -8,11 +8,13 @@ package tp1;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 /**
  *
- * @author male_
+ * @author male
+ * @author anto
  */
 public class Cafeteria {
     private LinkedBlockingQueue pedidosPendientes;
@@ -21,17 +23,40 @@ public class Cafeteria {
             //el callable devuelve algo --> teoricamente seria el cafe pero weno eso dps se ve
             //aca es donde tendria que tener el schedule entonces
    private Barista baristas[];
+   private Semaphore mesas[]; //Los clientes se sientan en las mesas y de ahi llaman al barista
+   private Semaphore avisarBarista; //Con este semaforo es que lo llaman
    
 
    
-    public Cafeteria(int cantBaristas){
+    public Cafeteria(int cantBaristas, int cantMesas){
         pedidosPendientes= new LinkedBlockingQueue();
         scheduler= Executors.newScheduledThreadPool(cantBaristas);
       
         for (int i = 0; i < baristas.length; i++) {
             Barista barista = baristas[i];
         }
+        
+        for (int i = 0; i < mesas.length; i++) {
+           mesas[i] = new Semaphore(1);
+        }
                 
+    }
+    
+    public int sentarseEnLaMesa(){
+        //Llega el cliente y busca por una mesa libre, si hay alguna se sienta
+        //Sino se va de la cafeteria porque significa que esta llena
+        
+        int numeroMesa=-1;
+        for (int i = 0; i < mesas.length; i++) {
+            //busca una mesa libre
+            if(mesas[i].tryAcquire())
+                numeroMesa=i;
+        }
+        return numeroMesa;
+    }
+    
+    public void liberarMesa(int numeroMesa){
+        mesas[numeroMesa].release();
     }
     
     

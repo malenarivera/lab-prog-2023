@@ -8,6 +8,7 @@ package tp1;
 /**
  *
  * @author male_
+ * @author anto
  */
 public class CafeConAzucar implements Cafe{
     private Cafe cafeDecorado;
