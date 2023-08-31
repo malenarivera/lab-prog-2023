@@ -6,7 +6,7 @@ public class Planificador implements Runnable {
 
     public void run (){
         while (true){
-        c.planificarPreparacion();
+         c.planificarPreparacion();
         }
     }
 }

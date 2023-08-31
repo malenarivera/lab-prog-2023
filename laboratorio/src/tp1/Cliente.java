@@ -1,7 +1,7 @@
 package tp1;
 
 public class Cliente implements Runnable {
-    CafeteriaR c;
+    Cafeteria c;
     
 
 

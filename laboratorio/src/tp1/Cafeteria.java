@@ -1,7 +1,11 @@
 package tp1;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.FutureTask;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 public class Cafeteria {
@@ -47,12 +51,24 @@ public class Cafeteria {
 
     public void planificarPreparacion (){
         //deberia ser
+  
         int i=0;
         while(!pedidosPendientes.isEmpty()){
-           Pedido pedidoListo= (Pedido)planificador.schedule(baristas[i], 5, TimeUnit.SECONDS);
-           //avisa al cliente que su pedido esta listo 
-           pedidoListo.avisarPedidoListo();
+
+            ScheduledFuture res=planificador.schedule(baristas[i], 5, TimeUnit.SECONDS);
+            Pedido pedidoListo;
+            try {
+                pedidoListo = (Pedido)res.get();
+                //avisa al cliente que su pedido esta listo 
+                pedidoListo.avisarPedidoListo();
+            } catch (Exception e) {
+           
+                e.printStackTrace();
+            } 
+        
         }
+
+    
 
     }
 
