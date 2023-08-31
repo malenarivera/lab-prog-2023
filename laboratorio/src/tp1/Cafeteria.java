@@ -8,7 +8,7 @@ public class Cafeteria {
 
     private LinkedBlockingQueue pedidosPendientes;
     private Barista baristas[]; //Arreglo para los baristas;
-    private ScheduledExecutorService planificador; //Para algo (no se para que)
+    private ScheduledExecutorService planificador; //Para avisarle a los baristas que deben trabajar
      
 
 

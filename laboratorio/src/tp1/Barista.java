@@ -3,7 +3,7 @@ package tp1;
     import java.util.concurrent.*;
 
 public class Barista implements Callable {
-    CafeteriaR c;
+    Cafeteria c;
 
    
     @Override
