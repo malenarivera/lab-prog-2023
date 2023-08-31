@@ -14,8 +14,8 @@ public class Pedido {
         this.c=c;
         this.cliente=cliente;
         listo= new Semaphore(0);
-        numeroPedido=this.nro;
-        nro++;
+        numeroPedido=Pedido.nro;
+        Pedido.nro++;
     }
 
     public Cafe getCafe(){

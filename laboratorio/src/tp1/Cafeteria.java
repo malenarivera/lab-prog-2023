@@ -29,7 +29,7 @@ public class Cafeteria {
         avisarPedido= new Semaphore(0);
         baristas= new Barista[cantBaristas];
         for (int i = 0; i < baristas.length; i++) {
-            baristas[i]= new Barista(this);
+            baristas[i]= new Barista(this,i);
         }
         planificador=  Executors.newScheduledThreadPool(cantBaristas);
     }

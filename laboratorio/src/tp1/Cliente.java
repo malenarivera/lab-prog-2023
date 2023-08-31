@@ -18,8 +18,8 @@ public class Cliente implements Runnable {
     @Override
     public void run (){
        Pedido p= c.hacerPedido(this);
-        System.out.println("Cliente "+Thread.currentThread().getName()+" hizo el pedido nro"+p.obtenerNumeroPedido());
+        System.out.println(Thread.currentThread().getName()+" hizo el pedido nro"+p.obtenerNumeroPedido());
        c.esperarPedido(p);
-       System.out.println ("Soy el cliente "+Thread.currentThread().getName()+" y recibi mi pedido con nro" +p.obtenerNumeroPedido());
+       System.out.println (Thread.currentThread().getName()+" recibio su pedido con nro" +p.obtenerNumeroPedido());
     }
 }

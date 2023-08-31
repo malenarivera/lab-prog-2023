@@ -10,20 +10,21 @@ package tp1;
 
 public class Barista implements Callable {
     Cafeteria c;
+    String nombre;
     
-    public Barista (Cafeteria c){
+    public Barista (Cafeteria c, int i){
         this.c=c;
+        nombre = "Barista "+i;
     }
 
    
     @Override
     public Pedido call() throws Exception {
         Pedido p=c.obtenerPedido(); 
-        System.out.println("Barista obtuvo el pedido "+p.obtenerNumeroPedido());
+        System.out.println(nombre+" obtuvo el pedido "+p.obtenerNumeroPedido());
         //lo preparaaa
         Thread.sleep(100);
-        System.out.println ("Se termino de preparar el pedido "+p.obtenerNumeroPedido());      
-      
+        System.out.println ("Se termino de preparar el pedido "+p.obtenerNumeroPedido()+'\n'); 
         return p;
         
     }
