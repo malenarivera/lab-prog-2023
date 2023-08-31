@@ -17,11 +17,12 @@ public class Barista implements Callable {
 
    
     @Override
-    public Object call() throws Exception {
-        Pedido p=c.obtenerPedido();
+    public Pedido call() throws Exception {
+        Pedido p=c.obtenerPedido(); 
+        System.out.println("Barista obtuvo el pedido "+p.obtenerNumeroPedido());
         //lo preparaaa
-        Thread.currentThread().sleep(100);
-        System.out.println (Thread.currentThread().getName() + "YA  PREPARO EL CAFE");      
+        Thread.sleep(100);
+        System.out.println ("Se termino de preparar el pedido "+p.obtenerNumeroPedido());      
       
         return p;
         

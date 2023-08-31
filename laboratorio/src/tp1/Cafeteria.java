@@ -1,8 +1,11 @@
 package tp1;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -19,14 +22,16 @@ public class Cafeteria {
     private ScheduledExecutorService planificador; //Para que cada barista prepare un pedido
     private Semaphore avisarPedido; //Semaforo que sirve para avisarle al barista que hay un pedido listo
     
-    public void setearBaristas (Barista b[]){
-        baristas=b;
-        planificador=  Executors.newScheduledThreadPool(b.length);
-    }
+  
     
-    public Cafeteria (){
+    public Cafeteria (int cantBaristas){
         pedidosPendientes = new LinkedBlockingQueue();
         avisarPedido= new Semaphore(0);
+        baristas= new Barista[cantBaristas];
+        for (int i = 0; i < baristas.length; i++) {
+            baristas[i]= new Barista(this);
+        }
+        planificador=  Executors.newScheduledThreadPool(cantBaristas);
     }
      
 
@@ -41,7 +46,7 @@ public class Cafeteria {
         Cafe c= new CafeSolo();
             
         int numeroRandom= (int)(1 + (Math.random() * (2-1)));
-        if(numeroRandom==1){ //si lo quiere con Leche
+        if(numeroRandom==1) //si lo quiere con Leche
             c= new CafeConLeche(c);
         
         numeroRandom= (int)(1 + (Math.random() * (2-1)));
@@ -54,15 +59,12 @@ public class Cafeteria {
         
         pedido= new Pedido (c,cliente); //Se crea el pedido con el cafe elegido y el cliente que lo pidio
         pedidosPendientes.offer(pedido); //Se agrega el pedido al buffer
-        
-        }
-        avisarPedido.release(); //Le avisa al barista que hizo un pedido
+        avisarPedido.release(); //avisa que hizo un pedido
         return pedido;
     }
 
     public void esperarPedido(Pedido p){
         p.esperarPedido();
-        System.out.println ("YA ESTA MI CAFEEE ") ;
     }
 
 
@@ -77,16 +79,23 @@ public class Cafeteria {
         }
     }
 
-    public void planificarPreparacion (){
+    public void planificarPreparacion () throws ExecutionException, InterruptedException{
         //deberia ser
-        int i=0;
-        while(!pedidosPendientes.isEmpty()){
-           Pedido pedidoListo= (Pedido)planificador.schedule(baristas[i], 5, TimeUnit.SECONDS);
-           //avisa al cliente que su pedido esta listo 
-           pedidoListo.avisarPedidoListo();
-        }
+        int j=0;
+       while(j<baristas.length && !pedidosPendientes.isEmpty()){
+           ScheduledFuture res= planificador.schedule(baristas[j], 5, TimeUnit.SECONDS); //Le envia la tarea al barista
+            Pedido pedidoListo;
+                pedidoListo= (Pedido) res.get();
+                pedidoListo.avisarPedidoListo();
+                
+             if(j++==baristas.length)
+                 j=0;
+             else
+               j++;
+          }
+       }
 
-    }
+    
 
 
     //metodos barista

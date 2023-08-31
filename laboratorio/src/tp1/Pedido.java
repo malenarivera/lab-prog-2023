@@ -6,12 +6,16 @@ public class Pedido {
     private Cafe c;
     private Cliente cliente;
     private Semaphore listo;
+    private int numeroPedido;
+    private static int nro=0;
 
 
     public Pedido (Cafe c, Cliente cliente){
         this.c=c;
         this.cliente=cliente;
         listo= new Semaphore(0);
+        numeroPedido=this.nro;
+        nro++;
     }
 
     public Cafe getCafe(){
@@ -26,6 +30,11 @@ public class Pedido {
             e.printStackTrace();
         }
     }
+    
+    public int obtenerNumeroPedido(){
+        return this.numeroPedido;
+    }
+    
     public void avisarPedidoListo(){
         listo.release();
     }

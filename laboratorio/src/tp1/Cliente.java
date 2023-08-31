@@ -7,7 +7,7 @@ El cliente hace un pedido a la cafeteria y espera por este hasta que el barista
 */
 
 public class Cliente implements Runnable {
-    Cafeteria c;
+    private Cafeteria c;
     
     public Cliente (Cafeteria c){
         this.c=c;
@@ -17,9 +17,9 @@ public class Cliente implements Runnable {
 
     @Override
     public void run (){
-       System.out.println("Soy el cliente "+Thread.currentThread().getName()+"y voy a hacer un pedido");
        Pedido p= c.hacerPedido(this);
+        System.out.println("Cliente "+Thread.currentThread().getName()+" hizo el pedido nro"+p.obtenerNumeroPedido());
        c.esperarPedido(p);
-       System.out.println ("Soy el cliente "+Thread.currentThread().getName()+", recibi mi pedido y me voy");
+       System.out.println ("Soy el cliente "+Thread.currentThread().getName()+" y recibi mi pedido con nro" +p.obtenerNumeroPedido());
     }
 }
