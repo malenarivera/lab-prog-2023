@@ -11,7 +11,7 @@ package tp1;
  * @author anto
  */
 public interface Cafe {
-    //clase q implementa el decoratorrrrr
+    
     public String obtenerTipo();
     
 }
