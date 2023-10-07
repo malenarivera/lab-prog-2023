@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&family=Poppins:wght@300;400&display=swap');
 
 * {
     box-sizing: border-box;
@@ -94,8 +95,148 @@ body {
     display: flex;
     transition: transform 1s ease-in-out;
 }
-
-img {
+.carrusel{
     width: 100%;
     height: auto;
 }
+
+.conteiner-cervezas{
+    width:100%;
+    min-height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0px 90px;
+}
+.conteiner-cervezas-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.conteiner-cervezas-section .card{
+    flex: 1;
+    margin:50px 70px;
+    box-shadow: 0px 2px 8px 0px rgba(255, 255, 255, 0.2);
+
+
+}
+.conteiner-cervezas-section .card img{
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; 
+}
+.conteiner-cervezas-section .card img:hover{
+    transform: scale(1.1,1.1);
+
+}
+
+@media screen and (max-width: 768px) {
+    .conteiner-cervezas-section {
+      flex-direction: column;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    .conteiner-cervezas-section {
+      flex-direction: row;
+    }
+  }
+h2{
+
+    font-family: 'Bebas Neue', sans-serif;
+    color: white;
+    font-size: 75px;
+    text-align: center;
+    text-decoration: none; /* Elimina el subrayado predeterminado del texto */
+    transition: transform 0.3s; 
+
+}
+
+.centerSides::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: left right;
+    transition: transform 0.25s ease-out;
+}
+.centerSides:hover::after {
+    transform: scaleX(1);
+    transform-origin: right left;
+}
+
+.linea{
+    border: none; /* Elimina el borde predeterminado del hr */
+    height: 2px; /* Grosor de la línea */
+    background-color: orangered; /* Color de la línea */
+    width: 50%; /* Anchura deseada para la línea */
+    margin: 0 auto; /* Centra horizontalmente el hr */
+    opacity: 1;
+  }
+
+
+  .texto-invisible{
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+.ver{
+    border-radius: 10px;
+    background-color: black;
+    color: orangered;
+    width: 150px; /* Ancho deseado en píxeles o cualquier otra unidad */
+    height: 40px; /* Alto deseado en píxeles o cualquier otra unidad */
+    align-items: center;
+}
+.ver:hover{
+    background-color: white;
+
+}
+
+/*** ESTILOS BOTÓN GROW ELLIPSE ***/
+.ov-btn-grow-ellipse {
+    background: black; /* color de fondo */
+    color: white; /* color de fuente */
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid white; /* tamaño y color de borde */
+    padding: 10px 14px;
+    border-radius: 10px; /* redondear bordes */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+
+  }
+  .ov-btn-grow-ellipse:hover {
+    color: black;/* color de fuente hover */
+    border: black;
+    
+  }
+  .ov-btn-grow-ellipse::after {
+    content: "";
+    background: orangered; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    border-radius: 50%;
+    left: -50%;
+    right: -50%;
+    top: -150%;
+    bottom: -150%;
+    transform: scale(0, 0);
+    transition: all 0.1s ease;
+  }
+  .ov-btn-grow-ellipse:hover::after {
+    transition: all 0.3s ease-out;
+    transform: scale(1, 1);
+  }
+ 
