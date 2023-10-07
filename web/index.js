@@ -1,3 +1,6 @@
+
+
+
 let sliderInner= document.querySelector(".slider-iner");
 let images=sliderInner.querySelectorAll("img");
 
