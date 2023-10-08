@@ -42,3 +42,23 @@ document.addEventListener("DOMContentLoaded", function () {
   // Llama a verificarVisibilidad() al cargar la página para manejar el texto inicialmente visible si está cerca de la parte superior de la página
   window.addEventListener("load", verificarVisibilidad);
 });
+
+
+// Obtén una referencia al enlace y al contenedor de imágenes
+var botonVerMas = document.getElementById("boton-ver-mas");
+var contenedorImagenes = document.getElementById("imagenes-adicionales");
+
+// Agrega un evento de clic al enlace
+botonVerMas.addEventListener("click", function(event) {
+  event.preventDefault(); // Evita que el enlace realice la acción predeterminada (navegar a una nueva página)
+
+  // Verifica si el contenedor de imágenes está visible
+  if (contenedorImagenes.style.display === "none" || contenedorImagenes.style.display === "") {
+    // Si está oculto, muéstralo
+    contenedorImagenes.style.display = "block";
+  } else {
+    // Si está visible, ocúltalo
+    contenedorImagenes.style.display = "none";
+  }
+});
+

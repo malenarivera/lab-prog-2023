@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&family=Poppins:wght@300;400&display=swap');
 
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,6 +24,8 @@ body {
     align-items: center;
     height: 85px;
     padding: 5px 10%;
+   
+
 }
 
 .header .logo {
@@ -144,8 +147,7 @@ body {
       flex-direction: row;
     }
   }
-h2{
-
+#nuestras-cervezas{
     font-family: 'Bebas Neue', sans-serif;
     color: white;
     font-size: 75px;
@@ -187,20 +189,16 @@ h2{
     transition: opacity 0.5s ease;
   }
 
-.ver{
-    border-radius: 10px;
-    background-color: black;
-    color: orangered;
-    width: 150px; /* Ancho deseado en píxeles o cualquier otra unidad */
-    height: 40px; /* Alto deseado en píxeles o cualquier otra unidad */
-    align-items: center;
-}
-.ver:hover{
-    background-color: white;
 
-}
+  #boton{
+    display: flex; /* Utiliza flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente (opcional) */
 
-/*** ESTILOS BOTÓN GROW ELLIPSE ***/
+  }
+  
+
+
 .ov-btn-grow-ellipse {
     background: black; /* color de fondo */
     color: white; /* color de fuente */
@@ -213,6 +211,8 @@ h2{
     overflow: hidden;
     display: inline-block;
     text-decoration: none;
+    text-align: center;
+    
 
   }
   .ov-btn-grow-ellipse:hover {
@@ -233,10 +233,277 @@ h2{
     top: -150%;
     bottom: -150%;
     transform: scale(0, 0);
-    transition: all 0.1s ease;
+    transition: all 0.3s ease;
   }
   .ov-btn-grow-ellipse:hover::after {
     transition: all 0.3s ease-out;
     transform: scale(1, 1);
   }
  
+#sobre-nosotros-section{
+    width: 100%;
+    display: flex;
+   /* display: flex;
+   
+    height: 30rem;
+    width: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+ */
+
+}
+
+#sobre-nosotros{
+    padding:0px 90px;
+    margin: 20px;
+    justify-content: center;
+    text-align:justify;
+    width: 50%;
+}
+p{
+    color:white;
+    justify-content: center;
+}
+
+#h2sobrenos{
+    font-family: 'Bebas Neue', sans-serif;
+    color: white;
+    font-size: 75px;
+}
+.fotos{
+    width: 50%;
+    height: 50vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex: 0.75; /* Hace que el elemento derecho ocupe todo el espacio disponible en la derecha */
+    padding: 20px; /* Espacio interior para separar el contenido */
+  
+}
+
+.galeria{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+.img-box{
+    width: 100px;
+    height: 500px;
+    margin: 10px;
+    border-radius: 50px;
+    background: url(imagenes/foto1.jfif);
+    background-size:cover;
+    background-position: center;
+    position: relative;
+    transition: width 0.5s;
+}
+
+.img-box:nth-child(2){
+    background: url(imagenes/foto2.jfif);
+    background-size:cover;
+    background-position: center;
+}
+.img-box:nth-child(3){
+    background: url(imagenes/foto3.jfif);
+    background-size:cover;
+    background-position: center;
+}
+
+.img-box h3{
+    color:#fff;
+    position: absolute;
+    bottom:0;
+    left:30px;
+    opacity:0;
+    transition: bottom 0.5s, opacity 0.5s;
+}
+
+.img-box:hover{
+    width:300px;
+    cursor:pointer;
+
+
+}
+.img-box:hover h3{
+    opacity: 1;
+    bottom:25px;
+}
+
+
+ h2{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: 200;
+
+ }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  color:white;
+  padding:0px 90px;
+  font-size: 100px;
+ 
+}
+
+
+.conteiner-ubicacion span.material-symbols-outlined,
+.conteiner-ubicacion h2 {
+  display: inline-block; /* Hace que los elementos se muestren en línea uno al lado del otro */
+  vertical-align: middle; /* Alinea verticalmente los elementos al centro */
+  margin: 0; /* Elimina cualquier margen */
+  padding: 0; /* Elimina cualquier espacio interior (padding) */
+}
+
+iframe {
+    border-radius: 10px; /* Ajusta el valor según el radio de redondeo deseado */
+  }
+
+  .contenedor {
+
+    /*
+    display:flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+   /* align-items: center; /* Centra verticalmente el contenido 
+    height: 350px; /* Altura del contenedor (ajusta según tus necesidades) 
+    background-color:black; /* Color de fondo del contenedor (opcional) */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+
+  }
+  
+  .linea-vertical {
+    border-left: 2px solid white; /* Ancho y color de la línea */
+    height: 45%; /* Toma la altura completa del contenedor */
+    margin: 0 30px; /* Margen horizontal para separar los elementos */
+    align-items: center;
+  }
+  .conteiner-ubicacion-mapa {
+    height: 270px; /* Ajusta la altura según sea necesario */
+    margin-left: -40px; 
+            
+  }
+  .conteiner-ubicacion{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    justify-content: left;
+  }
+  
+.horarios {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .reloj {
+    display: block; /* Muestra la imagen por defecto */
+  
+    transition: opacity 0.5s ease; 
+  }
+  
+  .texto-horarios {
+    display: none; /* Oculta el texto por defecto */
+    text-align: center; /* Centra el texto horizontalmente */
+    transition: opacity 0.5s ease; 
+  }
+  
+  .horarios:hover .reloj {
+    opacity: 0; /* Hace que la imagen sea invisible al hacer hover */
+  }
+  
+  .horarios:hover .texto-horarios {
+    display: block; /* Muestra el texto al hacer hover */
+  }
+
+  
+.container-footer{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
