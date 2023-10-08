@@ -1,0 +1,46 @@
+
+[{
+        "nombre": "IPA ARGENTA",
+        "fecha" : "7/10/2023",
+        "graduacion" : "5,6%",
+        "amargor" : "Medio"
+      }, 
+      {
+        "nombre": "OLD ALE",
+        "fecha" : "6/10/2023",
+        "graduacion" : "9%",
+        "amargor" : "Bajo"
+      }, 
+      {
+        "nombre": "HOPPY PILSEN",
+        "fecha" : "5/10/2023",
+        "graduacion" : "4.8%",
+        "amargor" : "Suave"
+      },
+      {
+        "nombre": "IPA SESSION",
+        "fecha" : "4/10/2023",
+        "graduacion" : "4,3%",
+        "amargor" : "Suave"
+      }, 
+      {
+        "nombre": "COCO SCOTTISH",
+        "fecha" : "3/10/2023",
+        "graduacion" : "4,0%",
+        "amargor" : "Bajo"
+      },
+      {
+        "nombre": "PILSEN",
+        "fecha" : "2/10/2023",
+        "graduacion" : "3.9%",
+        "amargor" : "Bajo"
+      },
+      {
+        "nombre": "OLD ALE",
+        "fecha" : "1/10/2023",
+        "graduacion" : "9%",
+        "amargor" : "Bajo"
+      }
+]
+  
+  
