@@ -11,19 +11,18 @@
 
 /* styles.css */
 body {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
 }
 
 .header {
   background-color: black;
+  border-bottom: 1px solid rgb(92, 92, 92);
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 85px;
-  padding: 5px 10%;
- 
-
+  padding: 0px 10%;
 }
 
 .header .logo {
@@ -32,7 +31,6 @@ body {
 
 .header.logo.img {
   height: 70px;
-  width: auto;
   transition: all 0.3s;
 }
 
@@ -60,6 +58,7 @@ body {
 
 /* Estilos para la tabla */
 table.centered {
+    font-size: 700;
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
@@ -67,18 +66,18 @@ table.centered {
 }
 
 table.centered th{
-    background-color: rgb(248, 210, 139);
+    background-color: rgba(226, 150, 114, 0.685);
     color: black;
     padding: 8px;
     text-align: center;
-    border-left:1px solid gray;
-    border-right:1px solid gray;
+    border-left:1px solid gainsboro;
+    border-right:1px solid gainsboro;
     border-bottom: 1px solid gray;
     border-top: 1px solid gray;
 }
 table.centered td {
-  background-color: white;
-    color: black;
+  background-color: black;
+    color: whitesmoke;
     padding: 8px;
     text-align: center;
     border-left:1px solid gray;
@@ -94,12 +93,12 @@ table.centered td {
   }
 
 .btn {
-    background:white; /* color de fondo */
+    background: rgba(226, 150, 114, 0.685);/* color de fondo */
     color: black; /* color de fuente */
-    border: 2px solid orangered; /* tamaño y color de borde */
+    border: 1px solid  rgba(226, 150, 114, 0.685); /* tamaño y color de borde */
     font-weight: 700;
     padding: 16px 20px;
-    border-radius: 5px; /* redondear bordes */
+    border-radius: 50px; /* redondear bordes */
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -108,9 +107,11 @@ table.centered td {
   .btn:hover {
     font-weight: 1000;
     color: white;/* color de fuente hover */
+    border: 2px solid black; /* tamaño y color de borde */
   }
   .btn::after {
     content: "";
+    color: white;/* color de fuente hover */
     background: orangered; /* color de fondo hover */
     border: 2px solid orangered; /* tamaño y color de borde */
     position: absolute;
@@ -138,7 +139,13 @@ table.centered td {
   
   .centro {
     font-size: 24px;
-    color: black;
+    color: white;
     text-decoration: none;
     margin-bottom: 20px; /* Espacio entre el texto y el botón */
+
+    
+  }
+
+  .nombreCerveza{
+    color: orangered;
   }

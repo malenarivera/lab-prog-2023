@@ -1,7 +1,40 @@
+document.querySelector('#boton').addEventListener('click', function () {
+    var boton = document.querySelector('#boton');
+    var tabla = document.querySelector('#tabla');
+    
+    // Si la tabla está visible, oculta la tabla y muestra el botón
+    if (!tabla.classList.contains('hidden')) {
+        ocultarTabla();
+        mostrarBoton();
+    } else {
+        mostrarTabla();
+        ocultarBoton();
+    }
+});
+
+function mostrarTabla() {
+    var tabla = document.querySelector('#tabla');
+    tabla.classList.remove('hidden');
+}
+
+function ocultarTabla() {
+    var tabla = document.querySelector('#tabla');
+    tabla.classList.add('hidden');
+}
+
+function mostrarBoton() {
+    var boton = document.querySelector('#boton');
+    boton.style.display = 'block';
+}
+
+function ocultarBoton() {
+    var boton = document.querySelector('#boton');
+    boton.style.display = 'none';
+}
+
 document.querySelector('#boton').addEventListener('click', traerDatos);
 
 function traerDatos() {
-    console.log(Object);
     const jeje = new XMLHttpRequest();
 
     jeje.open('GET', 'datitos.json', true);
@@ -15,7 +48,7 @@ function traerDatos() {
 
             for (let cerveza of datos) {
                 cervesitas.innerHTML += `
-                <tr>
+                <tr class"nombreCerveza">
                     <td>${cerveza.nombre}</td>
                     <td>${cerveza.fecha}</td>
                     <td>${cerveza.graduacion}</td>
@@ -28,10 +61,4 @@ function traerDatos() {
             mostrarTabla();
         }
     }
-}
-
-function mostrarTabla() {
-    // Obtén la referencia a la tabla y quita la clase "hidden" para mostrarla
-    var tabla = document.querySelector('#tabla');
-    tabla.classList.remove('hidden');
 }

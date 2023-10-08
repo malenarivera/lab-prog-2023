@@ -8,7 +8,7 @@
       {
         "nombre": "OLD ALE",
         "fecha" : "6/10/2023",
-        "graduacion" : "9%",
+        "graduacion" : "9.0%",
         "amargor" : "Bajo"
       }, 
       {
@@ -38,7 +38,7 @@
       {
         "nombre": "OLD ALE",
         "fecha" : "1/10/2023",
-        "graduacion" : "9%",
+        "graduacion" : "9.0%",
         "amargor" : "Bajo"
       }
 ]
