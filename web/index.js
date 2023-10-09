@@ -1,3 +1,4 @@
+//espera a que se hayan cargado todos los elementos
 document.addEventListener("DOMContentLoaded", function () {
   let sliderInner = document.querySelector(".slider-iner");
   let images = sliderInner.querySelectorAll("img");
@@ -13,52 +14,32 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 3000); // Cambia la imagen cada 3 segundos (ajusta el tiempo según tus necesidades)
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Tu código JavaScript aquí
-  // Obtén el elemento de texto invisible
-  var textoInvisible = document.querySelector(".texto-invisible");
+function cervezaDelDia() {
+  let imagenes = [
+    "ipa_argenta",
+    "ipasession",
+    "cocoscotish",
+    "pilsen",
+    "hoppypilsen",
+    "oldale",
+  ];
+  let random = Math.floor(Math.random() * 6);
+  let conteinerCerveza = document.getElementById("cerveza-del-dia");
 
-  console.log(textoInvisible);
+  // Crear un elemento img
+  let img = document.createElement("img");
 
-  // Función para verificar la visibilidad del texto
-  function verificarVisibilidad() {
-    // Obtén la posición de desplazamiento vertical actual
-    var scrollPos = window.scrollY;
+  let r = imagenes[random];
+  // Establecer el atributo src con la URL de la imagen
+  img.src = "imagenes/" + r + ".jfif"; // Reemplaza "ruta-de-tu-imagen.jpg" con la ruta de tu imagen
 
-    // La altura a la que quieres que aparezca el texto
-    var triggerPos =
-      window.innerHeight *
-      0.7; /* Aparecerá cuando el 70% de la ventana esté visible */
+  console.log(r);
+  // Establecer el ancho y alto de la imagen
+  img.style.maxWidth = "100%"; // Ancho en píxeles
+  img.style.maxHeight = "100%";; // Alto en píxeles
+  // Agregar la imagen al contenedor
+  conteinerCerveza.appendChild(img);
+}
 
-    // Verifica si el usuario ha desplazado lo suficiente para mostrar el texto
-    if (scrollPos >= triggerPos) {
-      textoInvisible.style.opacity = "1"; // Hace que el texto sea visible
-    }
-  }
-
-  // Agrega un evento de desplazamiento a la ventana
-  window.addEventListener("scroll", verificarVisibilidad);
-
-  // Llama a verificarVisibilidad() al cargar la página para manejar el texto inicialmente visible si está cerca de la parte superior de la página
-  window.addEventListener("load", verificarVisibilidad);
-});
-
-
-// Obtén una referencia al enlace y al contenedor de imágenes
-var botonVerMas = document.getElementById("boton-ver-mas");
-var contenedorImagenes = document.getElementById("imagenes-adicionales");
-
-// Agrega un evento de clic al enlace
-botonVerMas.addEventListener("click", function(event) {
-  event.preventDefault(); // Evita que el enlace realice la acción predeterminada (navegar a una nueva página)
-
-  // Verifica si el contenedor de imágenes está visible
-  if (contenedorImagenes.style.display === "none" || contenedorImagenes.style.display === "") {
-    // Si está oculto, muéstralo
-    contenedorImagenes.style.display = "block";
-  } else {
-    // Si está visible, ocúltalo
-    contenedorImagenes.style.display = "none";
-  }
-});
-
+// Llama a la función para mostrar una cerveza al cargar la página
+document.addEventListener("DOMContentLoaded", cervezaDelDia);
