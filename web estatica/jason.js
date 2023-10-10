@@ -53,12 +53,27 @@ function traerDatos() {
                     <td>${cerveza.fecha}</td>
                     <td>${cerveza.graduacion}</td>
                     <td>${cerveza.amargor}</td>
+                    <td>
+                    <a href="#modal" class="btno">Ver Mas</a>
+                    <div id="modal">
+                      <a href="#cerrar"></a>
+                      <div id="modalContent">
+                         <a href="#cerrar-${cerveza.nombre}" class="cerrar">X</a>
+                         <img src="${cerveza.verMas}" width="350px" height="550px" />
+                        </div>
+                    </div></td>
                 </tr>
                 `
             }
+            
 
             // Mostrar la tabla una vez que se han cargado los datos
             mostrarTabla();
         }
     }
+    document.getElementById("logoImagen").addEventListener("click", function() {
+        // Recarga la página
+        location.reload();
+    });
+    
 }

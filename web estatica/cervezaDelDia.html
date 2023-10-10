@@ -14,16 +14,18 @@
                 class="logoinicial"
                 src="gif logo.gif"
                 alt="Logo de la marca"
-                width="61px"
-                height="61px"
+                width="51px"
+                height="51px"
+                id="logoImagen"
             />
         </div>
-        <a href="" class="bton"><button>Contactanos</button></a>
+        <a href="https://api.whatsapp.com/send?phone=542995063063&text=Hola%20mutisia!!%20Quiero%20pedir..." class="bton" target="_blank"><button>Contactanos</button></a>
     </header>
     <div class="Contenedor">
         <div class="Seccion"></div>
         <h1 class="centro">CERVEZAS DEL DIA DE DIAS ANTERIORES</h1>
         <button class="btn" id="boton">Cargar cervezas de días pasados</button>
+        <div>
         <table class="centered hidden" id="tabla">
             <thead>
                 <tr>
@@ -31,11 +33,32 @@
                     <th>FECHA</th>
                     <th>GRADUACION ALCOHOLICA</th>
                     <th>AMARGOR</th>
+                    <th id="popup">VER MÁS</th>
                 </tr>
             </thead>
             <tbody id="cervesitas"></tbody>
         </table>
+        </div>
     </div>
     <script src="jason.js"></script>
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="fondoPag.jpg" 
+            alt="Logo de la página" 
+            width="100px"
+            heigt="100px"
+            />
+        </div>
+        <div class="footer-social">
+            <div class="ContenedorDos">
+                <p class="redes-title">Nuestras Redes Sociales</p>
+                <div class="redes-icons">
+                    <a href="https://www.instagram.com/mutisiacerveza/" target="_blank"><img src="instagram.png" alt="Instagram" width="51px" height="48px"></a>
+                    <a href="https://www.facebook.com/profile.php?id=100043488325750" target="_blank"><img src="—Pngtree—facebook white icon_3570425.png" alt="Facebook" width="51px" height="51px"></a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2023 Mutisia Cervezas</p>
+    </footer>
 </body>
 </html>
