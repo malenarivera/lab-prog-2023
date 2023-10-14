@@ -15,6 +15,11 @@ body {
     color: white;
 }
 
+ .wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Esto asegura que el wrapper ocupe al menos el 100% de la altura de la ventana del navegador */
+}
 .header {
   background-color: black;
   position: fixed;
@@ -61,6 +66,7 @@ body {
 }
 
 
+
 .footer {
   background-color: black;
   border-top: 1px solid rgb(53, 53, 53);
@@ -72,7 +78,9 @@ body {
   align-items: center;
   height: 85px;
   padding: 0 10%;
+  position: relative;
 }
+
 
 .footer-logo img {
   height: 70px;
@@ -92,6 +100,7 @@ table.centered {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    border-radius: 7px;
   margin-top: 20px; /* Añade espacio superior para separar la tabla del botón */
 }
 
@@ -115,6 +124,7 @@ table.centered td {
     border-bottom: 1px solid gray;
     border-top: 1px solid gray;
   }  
+
 
 
 /* Estilos para el botón */
@@ -166,6 +176,7 @@ table.centered td {
     text-align: center;
     padding: 7.5px;
     margin-top: 80px; /* Agrega un margen superior para evitar que el encabezado lo cubra */
+    flex: 1;
 }
 
 .ContenedorDos {
@@ -177,10 +188,6 @@ table.centered td {
     font-size: 24px;
     color: white;
     margin-bottom: 20px; /* Espacio entre el texto y el botón */    
-  }
-
-  .nombreCerveza{
-    color: orangered;
   }
 
   .redes-container {
@@ -225,7 +232,7 @@ table.centered td {
     box-shadow: none;
 }
 
-#modal{
+.modal-custom{
     position: fixed;
     top: 0px;
     left: 0px;

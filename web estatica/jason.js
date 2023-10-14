@@ -54,8 +54,8 @@ function traerDatos() {
                     <td>${cerveza.graduacion}</td>
                     <td>${cerveza.amargor}</td>
                     <td>
-                    <a href="#modal" class="btno">Ver Mas</a>
-                    <div id="modal">
+                    <a href="#modal-${cerveza.nombre}" class="btno">Ver Mas</a>
+                    <div id="modal-${cerveza.nombre}" class="modal-custom">
                       <a href="#cerrar"></a>
                       <div id="modalContent">
                          <a href="#cerrar-${cerveza.nombre}" class="cerrar">X</a>
