@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function cervezaDelDia() {
-  let imagenes = [
+  const imagenes = [
     "ipa_argenta",
     "ipasession",
     "cocoscotish",
@@ -33,7 +33,7 @@ function cervezaDelDia() {
   // Establecer el atributo src con la URL de la imagen
   img.src = "imagenes/" + r + ".jfif"; // Reemplaza "ruta-de-tu-imagen.jpg" con la ruta de tu imagen
 
-  console.log(r);
+
   // Establecer el ancho y alto de la imagen
   img.style.maxWidth = "100%"; // Ancho en píxeles
   img.style.maxHeight = "100%";; // Alto en píxeles

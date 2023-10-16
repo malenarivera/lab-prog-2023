@@ -70,7 +70,7 @@ body {
     color: rgb(194, 15, 15);
 }
 
-.header .btn button {
+.btn button {
     font-weight: 700;
     color: black;
     padding: 9px 25px;
@@ -81,8 +81,7 @@ body {
     transition: all 0.3s ease 0s;
 
 }
-
-.header .btn button:hover {
+.btn button:hover {
     background-color: #060707;
     color: rgb(194, 15, 15);
     transform: scale(1.2, 1.2);
@@ -385,17 +384,21 @@ iframe {
   }
   
   .linea-vertical {
-    border-left: 2px solid white; /* Ancho y color de la línea */
+    border-right: 2px solid white; /* Ancho y color de la línea */
     height: 45%; /* Toma la altura completa del contenedor */
     margin: 0 30px; /* Margen horizontal para separar los elementos */
     align-items: center;
+
+ 
   }
   .conteiner-ubicacion-mapa {
+   
     height: 270px; /* Ajusta la altura según sea necesario */
     margin-left: -40px; 
             
   }
   .conteiner-ubicacion{
+  
     margin-top: 0px;
     margin-bottom: 5px;
     justify-content: left;
@@ -403,121 +406,66 @@ iframe {
   
 .horarios {
     position: relative;
-    display: inline-block;
-  }
+    display: flex;
+     }
   
   .reloj {
-    display: block; /* Muestra la imagen por defecto */
-  
+   
+    display: block; 
+    padding:10px;
     transition: opacity 0.5s ease; 
   }
   
   .texto-horarios {
-    display: none; /* Oculta el texto por defecto */
-    text-align: center; /* Centra el texto horizontalmente */
-    transition: opacity 0.5s ease; 
+    display: flex;
+    align-items: center; /* Centra el texto horizontalmente */
+    justify-content: center;
+    padding-left: 10px;
+  
   }
   
-  .horarios:hover .reloj {
-    opacity: 0; /* Hace que la imagen sea invisible al hacer hover */
+ 
+
+  .footer {
+    background-color: black;
+    border-top: 1px solid rgb(53, 53, 53);
+    bottom: 0; /* Lo coloca en la parte inferior */
+    left: 0;
+    right: 0; /* Extiende el footer hasta el borde derecho */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 0 10%;
+    position: relative;
   }
   
-  .horarios:hover .texto-horarios {
-    display: block; /* Muestra el texto al hacer hover */
+  
+  .footer-logo img {
+    height: 70px;
+    width: auto;
+  }
+  
+  .footer-social a {
+    width: 30px; /* Ajusta el ancho según tus preferencias */
+    height: 30px; /* Ajusta la altura según tus preferencias */
+    margin-left: 20px; /* Espacio entre los iconos de redes sociales */
   }
 
-  
-.container-footer{
-	max-width: 1170px;
-	margin:auto;
+  .ContenedorDos {
+    text-align: center;
+    padding: 7.5px;
+  }
+  .redes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra verticalmente */
 }
-.row{
-	display: flex;
-	flex-wrap: wrap;
-}
-ul{
-	list-style: none;
-}
-.footer{
-	background-color: #24262b;
-    padding: 70px 0;
-}
-.footer-col{
-   width: 25%;
-   padding: 0 15px;
-}
-.footer-col h4{
-	font-size: 18px;
-	color: #ffffff;
-	text-transform: capitalize;
-	margin-bottom: 35px;
-	font-weight: 500;
-	position: relative;
-}
-.footer-col h4::before{
-	content: '';
-	position: absolute;
-	left:0;
-	bottom: -10px;
-	background-color: #e91e63;
-	height: 2px;
-	box-sizing: border-box;
-	width: 50px;
-}
-.footer-col ul li:not(:last-child){
-	margin-bottom: 10px;
-}
-.footer-col ul li a{
-	font-size: 16px;
-	text-transform: capitalize;
-	color: #ffffff;
-	text-decoration: none;
-	font-weight: 300;
-	color: #bbbbbb;
-	display: block;
-	transition: all 0.3s ease;
-}
-.footer-col ul li a:hover{
-	color: #ffffff;
-	padding-left: 8px;
-}
-.footer-col .social-links a{
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	background-color: rgba(255,255,255,0.2);
-	margin:0 10px 10px 0;
-	text-align: center;
-	line-height: 40px;
-	border-radius: 50%;
-	color: #ffffff;
-	transition: all 0.5s ease;
-}
-.footer-col .social-links a:hover{
-	color: #24262b;
-	background-color: #ffffff;
-}
-
-/*responsive*/
-@media(max-width: 767px){
-  .footer-col{
-        width: 50%;
-        margin-bottom: 30px;
-    }
-}
-@media(max-width: 574px){
-  .footer-col{
-        width: 100%;
-    }   
+.redes-icons {
+    justify-content: center; /* Centra horizontalmente los íconos */
 }
 
 
-/*
-#slogan{
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  font-weight: 500;
-  font-size: xx-large;
-}*/
 #slogan {
   font-family: 'Sofia Sans Condensed', sans-serif;
   font-weight: 500;
@@ -539,8 +487,18 @@ ul{
 }
 
 
-#titulos-cerveza-del-dia{
-  display: inline-block;
+
+
+
+#titulo-cerveza-del-dia{
+
+
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  height: 100%; /* Esto asegura que ocupe toda la altura del contenedor */
+
 
 }
 #conteiner-cerveza-del-dia{
@@ -552,16 +510,20 @@ ul{
   align-items: center; /* Centra verticalmente */
 }
 #cerveza-del-dia{
- /* border:2px solid white;*/
   width: 50%;
   border-radius: 10px;
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  height: 90vh; /* Ajusta la altura del contenedor al 100% de la ventana */
+  justify-content: center; 
+  align-items: center;
+  height: 90vh; 
 }
 
 
 
+#btn-cervezas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; 
+}
 
-  
