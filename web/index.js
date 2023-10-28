@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     let percentage = index * -100;
     sliderInner.style.transform = "translateX(" + percentage + "%)";
-  }, 3000); // Cambia la imagen cada 3 segundos (ajusta el tiempo según tus necesidades)
+  }, 3000);
 });
 
 function cervezaDelDia() {
@@ -26,20 +26,25 @@ function cervezaDelDia() {
   let random = Math.floor(Math.random() * 6);
   let conteinerCerveza = document.getElementById("cerveza-del-dia");
 
-  // Crear un elemento img
+
   let img = document.createElement("img");
 
   let r = imagenes[random];
-  // Establecer el atributo src con la URL de la imagen
-  img.src = "imagenes/" + r + ".jfif"; // Reemplaza "ruta-de-tu-imagen.jpg" con la ruta de tu imagen
+
+  img.src = "imagenes/" + r + ".jpeg"; 
 
 
-  // Establecer el ancho y alto de la imagen
-  img.style.maxWidth = "100%"; // Ancho en píxeles
-  img.style.maxHeight = "100%";; // Alto en píxeles
-  // Agregar la imagen al contenedor
+
+  img.style.maxWidth = "100%"; 
+  img.style.maxHeight = "100%";; 
+
   conteinerCerveza.appendChild(img);
 }
 
 // Llama a la función para mostrar una cerveza al cargar la página
 document.addEventListener("DOMContentLoaded", cervezaDelDia);
+
+document.getElementById("logoImagen").addEventListener("click", function() {
+  // Redirige a la página principal
+location.reload();
+});

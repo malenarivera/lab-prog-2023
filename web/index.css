@@ -154,7 +154,7 @@ body {
     color: white;
     font-size: 75px;
     text-align: center;
-    text-decoration: none; /* Elimina el subrayado predeterminado del texto */
+    text-decoration: none;
     transition: transform 0.3s; 
 
 }
@@ -177,11 +177,11 @@ body {
 }
 
 .linea{
-    border: none; /* Elimina el borde predeterminado del hr */
-    height: 2px; /* Grosor de la línea */
-    background-color: orangered; /* Color de la línea */
-    width: 50%; /* Anchura deseada para la línea */
-    margin: 0 auto; /* Centra horizontalmente el hr */
+    border: none; 
+    height: 2px; 
+    background-color: orangered;
+    width: 50%;
+    margin: 0 auto; 
     opacity: 1;
   }
 
@@ -193,9 +193,9 @@ body {
 
 
   #boton{
-    display: flex; /* Utiliza flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente (opcional) */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
 
   }
   
@@ -207,7 +207,7 @@ body {
     font-family: 'Poppins', sans-serif;
     border: 2px solid white; /* tamaño y color de borde */
     padding: 10px 14px;
-    border-radius: 10px; /* redondear bordes */
+    border-radius: 10px;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -218,13 +218,13 @@ body {
 
   }
   .ov-btn-grow-ellipse:hover {
-    color: black;/* color de fuente hover */
+    color: black;
     border: black;
     
   }
   .ov-btn-grow-ellipse::after {
     content: "";
-    background: orangered; /* color de fondo hover */
+    background: orangered; 
     position: absolute;
     z-index: -1;
     padding: 16px 20px;
@@ -245,13 +245,7 @@ body {
 #sobre-nosotros-section{
     width: 100%;
     display: flex;
-   /* display: flex;
-   
-    height: 30rem;
-    width: auto;
-    flex-direction: row;
-    flex-wrap: nowrap;
- */
+
 
 }
 
@@ -279,8 +273,8 @@ p{
     display: flex;
     align-items: center;
     justify-content: right;
-    flex: 0.75; /* Hace que el elemento derecho ocupe todo el espacio disponible en la derecha */
-    padding: 20px; /* Espacio interior para separar el contenido */
+    flex: 0.75; 
+    padding: 20px; 
   
 }
 
@@ -324,14 +318,12 @@ p{
 .img-box:hover{
     width:300px;
     cursor:pointer;
-
-
 }
+
 .img-box:hover h3{
     opacity: 1;
     bottom:25px;
 }
-
 
  h2{
     font-family: 'Poppins', sans-serif;
@@ -356,14 +348,14 @@ p{
 
 .conteiner-ubicacion span.material-symbols-outlined,
 .conteiner-ubicacion h2 {
-  display: inline-block; /* Hace que los elementos se muestren en línea uno al lado del otro */
-  vertical-align: middle; /* Alinea verticalmente los elementos al centro */
-  margin: 0; /* Elimina cualquier margen */
-  padding: 0; /* Elimina cualquier espacio interior (padding) */
+  display: inline-block;
+  vertical-align: middle; 
+  margin: 0; 
+  padding: 0; 
 }
 
 iframe {
-    border-radius: 10px; /* Ajusta el valor según el radio de redondeo deseado */
+    border-radius: 10px;
   }
 
   .contenedor {
@@ -384,16 +376,16 @@ iframe {
   }
   
   .linea-vertical {
-    border-right: 2px solid white; /* Ancho y color de la línea */
-    height: 45%; /* Toma la altura completa del contenedor */
-    margin: 0 30px; /* Margen horizontal para separar los elementos */
+    border-right: 2px solid white; 
+    height: 45%; 
+    margin: 0 30px;
     align-items: center;
 
  
   }
   .conteiner-ubicacion-mapa {
    
-    height: 270px; /* Ajusta la altura según sea necesario */
+    height: 270px;
     margin-left: -40px; 
             
   }
@@ -418,7 +410,7 @@ iframe {
   
   .texto-horarios {
     display: flex;
-    align-items: center; /* Centra el texto horizontalmente */
+    align-items: center;
     justify-content: center;
     padding-left: 10px;
   
@@ -429,9 +421,9 @@ iframe {
   .footer {
     background-color: black;
     border-top: 1px solid rgb(53, 53, 53);
-    bottom: 0; /* Lo coloca en la parte inferior */
+    bottom: 0;
     left: 0;
-    right: 0; /* Extiende el footer hasta el borde derecho */
+    right: 0; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -447,9 +439,9 @@ iframe {
   }
   
   .footer-social a {
-    width: 30px; /* Ajusta el ancho según tus preferencias */
-    height: 30px; /* Ajusta la altura según tus preferencias */
-    margin-left: 20px; /* Espacio entre los iconos de redes sociales */
+    width: 30px; 
+    height: 30px; 
+    margin-left: 20px; 
   }
 
   .ContenedorDos {
@@ -459,10 +451,10 @@ iframe {
   .redes-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra verticalmente */
+    align-items: center;
 }
 .redes-icons {
-    justify-content: center; /* Centra horizontalmente los íconos */
+    justify-content: center;
 }
 
 
@@ -494,10 +486,10 @@ iframe {
 
 
   display: flex;
-  flex-direction: column; /* Apila los elementos verticalmente */
-  justify-content: center; /* Centra verticalmente */
-  align-items: center; /* Centra horizontalmente */
-  height: 100%; /* Esto asegura que ocupe toda la altura del contenedor */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  height: 100%; 
 
 
 }
@@ -506,8 +498,8 @@ iframe {
   height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
+  justify-content: center; 
+  align-items: center;
 }
 #cerveza-del-dia{
   width: 50%;
