@@ -23,7 +23,7 @@ const cervezas = [
     if (!cerveza)
       res.status(404).send("La cerveza con el codigo proporcionado no se encontro");
   
-    res.send(course);
+    res.send(cerveza);
   });
 
 app.post("/api/cervezas", (req, res) => {
@@ -40,15 +40,7 @@ app.post("/api/cervezas", (req, res) => {
     res.send(cerveza);
   });
 
-  function validarCerveza(cerveza) {
-    const schema = Joi.object({
-      nombre: Joi.string().min(3).required(),
-      amargor: Joi.valid('suave', 'bajo', 'medio'),
-      graduacion: Joi.number()
-    });
-  
-    return schema.validate(cerveza);
-  }
+ 
 
 
   app.put("/api/cervezas/:codigo", (req, res) => {
@@ -66,7 +58,7 @@ app.post("/api/cervezas", (req, res) => {
     }
   
     // Actualizar la cerveza si se proporcionan nuevos valores
-    if (req.body.name !== undefined) {
+    if (req.body.nombre !== undefined) {
       cerveza.nombre = req.body.nombre;
     }
     if (req.body.amargor !== undefined) {
@@ -79,6 +71,16 @@ app.post("/api/cervezas", (req, res) => {
     // Enviar la cerveza actualizada como respuesta
     res.send(cerveza);
   });
+
+  function validarCerveza(cerveza) {
+    const schema = Joi.object({
+      nombre: Joi.string().min(3),
+      amargor: Joi.valid('suave', 'bajo', 'medio'),
+      graduacion: Joi.number()
+    });
+  
+    return schema.validate(cerveza);
+  }
   
 const puerto = process.env.puerto || 3000;
 app.listen(puerto, () => console.log("En el puerto ", puerto));
