@@ -14,6 +14,8 @@ const cervezas = [
     { codigo: 6, nombre: "old ale",  amargor:"bajo" , graduacion:9.0}
   ];
 
+
+//metodos GET
   app.get("/api/cervezas", (req, res) => {
     res.send(cervezas);
   });
@@ -25,7 +27,34 @@ const cervezas = [
   
     res.send(cerveza);
   });
+  app.get("/api/cervezas", (req, res) => {
+    // Obtener los parámetros de consulta, como "cantidad" y "from"
+    const cantidadDeseada = parseInt(req.query.cantidad) || 10; // Valor predeterminado de 10 si no se proporciona
+    const inicio = parseInt(req.query.from) || 0; // Valor predeterminado de 0 si no se proporciona
+  
+    if (isNaN(cantidadDeseada) || cantidadDeseada <= 0) {
+      return res.status(400).send("La cantidad debe ser un número entero positivo.");
+    }
+  
+    // Asegurarse de que el índice de inicio no sea mayor que la cantidad de elementos disponibles
+    if (inicio >= cervezas.length) {
+      return res.status(404).send("No hay suficientes elementos a partir del índice proporcionado.");
+    }
+  
+    // Limitar la cantidad de elementos a la cantidad deseada o al máximo disponible
+    const cantidadReal = Math.min(cantidadDeseada, cervezas.length - inicio);
+  
+    // Obtener las cervezas desde "inicio" hasta "inicio + cantidadReal"
+    const cervezasLimitadas = cervezas.slice(inicio, inicio + cantidadReal);
+  
+    res.send(cervezasLimitadas.slice(0, cantidadDeseada)); // Añadimos un slice adicional para limitar a la cantidad deseada
+  });
+  
+  
+  
 
+
+  //metodo post
 app.post("/api/cervezas", (req, res) => {
     const { error } = validarCerveza(req.body);
     if (error)  return res.status(404).send("El curso con el id proporcionado no se encontro");
@@ -42,6 +71,7 @@ app.post("/api/cervezas", (req, res) => {
 
  
 
+  //metodo put
 
   app.put("/api/cervezas/:codigo", (req, res) => {
     // Buscar la cerveza por su código
