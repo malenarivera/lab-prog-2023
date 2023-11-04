@@ -14,7 +14,28 @@ const cervezas = [
     { codigo: 6, nombre: "old ale",  amargor:"bajo" , graduacion:9.0}
   ];
 
+  //si los parametros no existen devuelvo todo 
 
+  app.get("/api/cervezas", (req, res) => {
+
+    const cantidadDeseada = parseInt(req.query.cantidad);
+    const inicio = parseInt(req.query.from) || 0; 
+  
+    if (isNaN(cantidadDeseada) || cantidadDeseada <= 0) {
+      return res.status(400).send("La cantidad debe ser un número entero positivo.");
+    }
+  
+    if (inicio >= cervezas.length) {
+      return res.status(404).send("No hay suficientes elementos a partir del índice proporcionado.");
+    }
+  
+    // Limitar la cantidad de elementos a la cantidad deseada o al máximo disponible
+    const cantidadReal = Math.min(cantidadDeseada, cervezas.length - inicio);
+  
+    const cervezasLimitadas = cervezas.slice(inicio, inicio + cantidadReal);
+    res.status(200).send(cervezasLimitadas)
+  
+  });
 //metodos GET
   app.get("/api/cervezas", (req, res) => {
     res.send(cervezas);
@@ -27,28 +48,7 @@ const cervezas = [
   
     res.send(cerveza);
   });
-  app.get("/api/cervezas", (req, res) => {
-    // Obtener los parámetros de consulta, como "cantidad" y "from"
-    const cantidadDeseada = parseInt(req.query.cantidad) || 10; // Valor predeterminado de 10 si no se proporciona
-    const inicio = parseInt(req.query.from) || 0; // Valor predeterminado de 0 si no se proporciona
-  
-    if (isNaN(cantidadDeseada) || cantidadDeseada <= 0) {
-      return res.status(400).send("La cantidad debe ser un número entero positivo.");
-    }
-  
-    // Asegurarse de que el índice de inicio no sea mayor que la cantidad de elementos disponibles
-    if (inicio >= cervezas.length) {
-      return res.status(404).send("No hay suficientes elementos a partir del índice proporcionado.");
-    }
-  
-    // Limitar la cantidad de elementos a la cantidad deseada o al máximo disponible
-    const cantidadReal = Math.min(cantidadDeseada, cervezas.length - inicio);
-  
-    // Obtener las cervezas desde "inicio" hasta "inicio + cantidadReal"
-    const cervezasLimitadas = cervezas.slice(inicio, inicio + cantidadReal);
-  
-    res.send(cervezasLimitadas.slice(0, cantidadDeseada)); // Añadimos un slice adicional para limitar a la cantidad deseada
-  });
+
   
   
   
@@ -69,7 +69,20 @@ app.post("/api/cervezas", (req, res) => {
     res.send(cerveza);
   });
 
- 
+  let codigoHtml = (req, res) => {
+    re.writeHead(200, {
+        'Content-Type': 'text/html'
+    });
+    fs.readFile('./index.html', null, function (error, data) {
+        if (error) {
+            response.writeHead(404);
+            respone.write('Whoops! File not found!');
+        } else {
+            response.write(data);
+        }
+        response.end();
+    });
+};
 
   //metodo put
 
@@ -112,8 +125,14 @@ app.post("/api/cervezas", (req, res) => {
     return schema.validate(cerveza);
   }
   
-const puerto = process.env.puerto || 3000;
+const puerto = process.env.PUERTO || 3000;
 app.listen(puerto, () => console.log("En el puerto ", puerto));
+
+
+//assuming app is express Object.
+app.get('/Users\Dell\Documents\LABPROG\lab-prog-2023-1\web',(req,res) =>{
+  res.sendFile('index.html');
+});
 
 
   
