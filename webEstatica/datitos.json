@@ -1,0 +1,61 @@
+
+[ 
+  {
+   "nombre": "COCO SCOTTISH",
+   "fecha" : "8/10/2023",
+   "graduacion" : "4,0%",
+   "amargor" : "Bajo",
+   "verMas": "imagenes/cocoscottish.jpeg"
+  }, 
+  {
+    "nombre": "IPA ARGENTA",
+    "fecha" : "7/10/2023",
+    "graduacion" : "5,6%",
+    "amargor" : "Medio",
+    "verMas": "imagenes/ipaargenta.jpeg"
+  }, 
+  {
+    "nombre": "OLD ALE",
+    "fecha" : "6/10/2023",
+    "graduacion" : "9,0%",
+    "amargor" : "Bajo",
+    "verMas":"imagenes/oldale.jpeg"
+  }, 
+  {
+    "nombre": "HOPPY PILSEN",
+    "fecha" : "5/10/2023",
+    "graduacion" : "4,8%",
+    "amargor" : "Suave",
+    "verMas":"imagenes/hoppypilsen.jpeg"
+  },
+  {
+    "nombre": "IPA SESSION",
+    "fecha" : "4/10/2023",
+    "graduacion" : "4,3%",
+    "amargor" : "Suave",
+    "verMas":"imagenes/ipasession.jpeg"
+  }, 
+  {
+    "nombre": "COCO SCOTTISH",
+    "fecha" : "3/10/2023",
+    "graduacion" : "4,0%",
+    "amargor" : "Bajo",
+    "verMas": "imagenes/cocoscottish.jpeg"
+  },
+  {
+    "nombre": "PILSEN",
+    "fecha" : "2/10/2023",
+    "graduacion" : "3,9%",
+    "amargor" : "Bajo",
+    "verMas":"imagenes/pilsen.jpeg"
+  },
+  {
+    "nombre": "OLD ALE",
+    "fecha" : "1/10/2023",
+    "graduacion" : "9,0%",
+    "amargor" : "Bajo",
+    "verMas":"imagenes/oldale.jpeg"
+  }
+]
+  
+  
